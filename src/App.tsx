@@ -1,9 +1,9 @@
 import Todos from "./components/Todos";
-
+const DUMMYITEMS = ["Learn React", "Learn TS"];
 function App() {
   return (
     <div>
-      <Todos />
+      <Todos items={DUMMYITEMS} />
     </div>
   );
 }
