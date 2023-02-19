@@ -6,6 +6,9 @@ function App() {
   // const todos = [new Todo("Learn React"), new Todo("Learn TypeScript")];
 
   const [todos, setTodos] = useState<Todo[]>([]);
+  const deleteTodoHandler = (todoId: string) => {
+    setTodos((prevstate) => prevstate.filter((todo) => todo.id !== todoId));
+  };
   const addTodoHandler = (text: string) => {
     const newTodo = new Todo(text);
     setTodos((prevState) => {
@@ -16,7 +19,7 @@ function App() {
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} deleteTodo={deleteTodoHandler} />
     </div>
   );
 }
